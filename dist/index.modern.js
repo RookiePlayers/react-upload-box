@@ -151,23 +151,18 @@ var UploadDiv = function UploadDiv(props) {
     isSizeLimit = _useState4[0],
     setIsSizeLimit = _useState4[1];
   var handleClick = function handleClick(e) {
-    console.log('hey');
     e.preventDefault();
     if (!props.viewOnly && fileUploadRef.current) {
       fileUploadRef.current.click();
     }
   };
   useEffect(function () {
-    console.log('----->>', props.image ? 'Image Available' : 'No Image');
     setImage(props.image ? props.image !== '' ? props.image : backupImage : backupImage);
   }, [props.image]);
   var handleChange = function handleChange(e) {
     var _e$target$files;
     var fileUploaded = (_e$target$files = e.target.files) === null || _e$target$files === void 0 ? void 0 : _e$target$files[0];
     var fileReader = new FileReader();
-    console.log('====================================');
-    console.log(fileUploaded);
-    console.log('====================================');
     if (fileUploaded) {
       var _props$sizeLimit;
       if (props.video && !fileUploaded.type.includes('video')) {
@@ -314,7 +309,6 @@ var UploadDiv = function UploadDiv(props) {
       pointerEvents: 'all'
     },
     onChange: function onChange(e) {
-      console.log(e.target.value);
       setImage(e.target.value);
       if (props.onUpload && /^(http(s)?:\/\/(.)+)/g.test(e.target.value)) {
         props.onUpload({

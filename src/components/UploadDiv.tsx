@@ -41,7 +41,6 @@ export const UploadDiv: React.FC<UploadDivProps> = (props) => {
   const [isSizeLimit, setIsSizeLimit] = useState<boolean>(false)
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    console.log('hey')
     e.preventDefault()
     if (!props.viewOnly && fileUploadRef.current) {
       fileUploadRef.current.click()
@@ -49,7 +48,6 @@ export const UploadDiv: React.FC<UploadDivProps> = (props) => {
   }
 
   useEffect(() => {
-    console.log('----->>', props.image ? 'Image Available' : 'No Image')
     setImage(
       props.image
         ? props.image !== ''
@@ -62,10 +60,6 @@ export const UploadDiv: React.FC<UploadDivProps> = (props) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const fileUploaded = e.target.files?.[0]
     const fileReader = new FileReader()
-
-    console.log('====================================')
-    console.log(fileUploaded)
-    console.log('====================================')
 
     if (fileUploaded) {
       if (props.video && !fileUploaded.type.includes('video')) {
@@ -254,7 +248,6 @@ export const UploadDiv: React.FC<UploadDivProps> = (props) => {
                   pointerEvents: 'all'
                 }}
                 onChange={(e) => {
-                  console.log(e.target.value)
                   setImage(e.target.value)
                   if (
                     props.onUpload &&
