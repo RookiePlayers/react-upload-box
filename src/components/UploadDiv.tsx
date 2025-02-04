@@ -12,12 +12,12 @@ import { InfoOutlined, LinkRounded } from '@mui/icons-material'
 import ReactPlayer from 'react-player'
 import { Column, Stack, Alignment } from 'ruki-react-layouts'
 
-interface OnUploadParams {
+export interface OnUploadParams {
   file: string
   blob: string
   link: string
 }
-interface UploadDivProps {
+export interface UploadDivProps {
   image: string
   viewOnly?: boolean
   video?: boolean

@@ -18,11 +18,26 @@ import React, { Component } from 'react'
 import MyComponent from 'react-upload-box'
 import 'react-upload-box/dist/index.css'
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
-}
+const Home = () => {
+    const [uploadImage, setUploadImage] = useState<File | null>(null);
+    const _upload = () => {
+
+    }
+    return <>
+        <Appbar pageNumber={1}>
+            <Grid container  spacing={2} sx={{ flexGrow: 1 }}>
+               <Card style={{height: 200, width: 200}}>
+                <UploadBox onUpload={(file)=>{
+                    setUploadImage(file);
+                }} image=""/>
+               </Card>
+               <Grid sx={{xs: 12}}>
+                <Button variant="contained" color="primary" onClick={_upload}>Upload</Button>
+                </Grid>
+            </Grid>
+        </Appbar>
+    </>
+};
 ```
 
 ## License
